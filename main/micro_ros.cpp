@@ -7,7 +7,7 @@ void joint_state_sub_callback(const void *msgin)
     last_arm_state_update_time = xTaskGetTickCount();
 
     // Extract position error from the array (assuming it's at index 0)
-    joint_pos_error = arr->element[0];
+    joint_pos_error = arr->element[2];
 
     // Store full array message with mutex protection
     if (xSemaphoreTake(joint_state_mutex, (TickType_t)10) == pdTRUE) {
